@@ -44,7 +44,7 @@ def normalize_text(text):
     final_unique = unique_lines(clean_lines)
     return "\n".join(final_unique)
 
-def split_with_overlap(text, chunk_size, overlap, mininmum_length = 30):
+def split_with_overlap(text, chunk_size, overlap, minimum_length = 30):
     if chunk_size <= 0:
         raise ValueError("chunk_size должен быть больше 0")
     if overlap < 0:
@@ -55,7 +55,7 @@ def split_with_overlap(text, chunk_size, overlap, mininmum_length = 30):
     step = chunk_size - overlap
     for start in range(0, len(text), step):
         chunk = text[start:start + chunk_size].strip()
-        if len(chunk) >= mininmum_length:
+        if len(chunk) >= minimum_length:
             chunks.append(chunk)
     return chunks
 
@@ -68,7 +68,6 @@ normalized_dir.mkdir(exist_ok=True)
 corpus_dir = Path("corpus")
 cleaned_dir = Path("cleaned")
 cleaned_dir.mkdir(exist_ok=True)
-files = list(source_dir.glob("*.txt"))
 files = list(corpus_dir.glob("*.txt"))
 all_chunks = []
 documents = []
@@ -76,19 +75,21 @@ documents = []
 for file_path in files:
     text = file_path.read_text(encoding="utf-8")
     chunks = split_with_overlap(text, 300, 50)
-    for chunk_id,chunk in enumerate(chunks):
+    for chunk_id, chunk in enumerate(chunks):
         data = {
             "source": file_path.name,
             "chunk_id": chunk_id,
             "text": chunk
         }
         all_chunks.append(data)
-    source_stem = file_path.stem
-    filename = f"{source_stem}_chunk_{chunk_id}.txt"
-    output_path = chunks_dir / filename
-    output_path.write_text(chunk, encoding="utf-8")
+        source_stem = file_path.stem
+        filename = f"{source_stem}_chunk_{chunk_id}.txt"
+        output_path = chunks_dir / filename
+        output_path.write_text(chunk, encoding="utf-8")
 
-for file_path in files:
+normalized_files = list(cleaned_dir.glob("*.txt"))
+
+for file_path in normalized_files:
     text = file_path.read_text(encoding="utf-8")
     normalized = normalize_text(text)
     output_path = normalized_dir / file_path.name
@@ -113,6 +114,11 @@ messages=[
         content=SYSTEM_PROMPT,
     )
 ]
+
+chunk_files = Path("chunks").glob("*.txt")
+if chunk_files:
+    context = "\n\n---\n\n".join(f.read_text(encoding="utf-8") for f in chunk_files)
+    messages.append(ChatMessage(role="user", content=f"Контекст из файлов:\n{context}"))
 
 logging.basicConfig(
     filename="app.log",
