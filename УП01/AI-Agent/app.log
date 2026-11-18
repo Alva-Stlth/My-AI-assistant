@@ -1,0 +1,26 @@
+2026-11-02 11:09:46,024 - INFO - Отправка запроса
+2026-11-02 11:09:46,213 - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2026-11-02 11:09:46,478 - INFO - HTTP Request: POST https://api.giga.chat/v2/chat/completions "HTTP/1.1 200 OK"
+2026-11-02 11:09:46,479 - WARNING - Пустой ввод
+2026-11-02 11:15:47,375 - INFO - Отправка запроса
+2026-11-02 11:15:48,777 - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2026-11-02 11:15:49,442 - INFO - HTTP Request: POST https://api.giga.chat/v2/chat/completions "HTTP/1.1 200 OK"
+2026-11-02 11:15:49,444 - INFO - Ответ успешно получен
+2026-11-03 11:22:15,196 - INFO - Старт программы
+2026-11-05 12:53:11,068 - INFO - Старт программы
+2026-11-05 12:53:43,796 - INFO - Отправка запроса
+2026-11-05 12:53:43,984 - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2026-11-05 12:53:44,300 - INFO - HTTP Request: POST https://api.giga.chat/v2/chat/completions "HTTP/1.1 200 OK"
+2026-11-05 12:53:44,302 - INFO - Ответ успешно получен
+2026-11-05 13:25:03,443 - INFO - Старт программы
+2026-11-09 18:18:59,397 - INFO - Старт программы
+2026-11-09 18:19:03,576 - INFO - Отправка запроса
+2026-11-09 18:19:03,693 - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2026-11-09 18:19:04,074 - INFO - HTTP Request: POST https://api.giga.chat/v2/chat/completions "HTTP/1.1 200 OK"
+2026-11-09 18:19:04,076 - INFO - Ответ успешно получен
+2026-11-10 14:28:39,198 - INFO - Старт программы
+2026-11-10 19:07:55,270 - INFO - Старт программы
+2026-11-10 19:08:16,204 - INFO - Отправка запроса
+2026-11-10 19:08:16,553 - INFO - HTTP Request: POST https://ngw.devices.sberbank.ru:9443/api/v2/oauth "HTTP/1.1 200 OK"
+2026-11-10 19:08:17,019 - INFO - HTTP Request: POST https://api.giga.chat/v2/chat/completions "HTTP/1.1 200 OK"
+2026-11-10 19:08:17,021 - INFO - Ответ успешно получен
